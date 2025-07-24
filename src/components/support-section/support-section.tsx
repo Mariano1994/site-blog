@@ -1,12 +1,20 @@
 import { HeartHandshake, Paintbrush, Store } from "lucide-react";
+import Image from "next/image";
 import { ptSansCaption } from "@/lib/fonts";
+import bg from "../../assets/background-features.svg";
 
 const SupportSection = () => {
 	return (
-		<section className=" pb-8 md:py-10 bg-gray-800">
-			<div className="container flex flex-col items-center gap-12 ">
+		<section className=" relative pb-8 md:py-10 bg-gray-800 ">
+			<Image
+				src={bg}
+				alt="bg"
+				className="absolute hidden  md:block w-full h-auto object-cover  "
+			/>
+
+			<div className="relative container flex flex-col items-center gap-12 md:mt-28 2xl:mt-40 ">
 				<h2
-					className={`${ptSansCaption.className} text-balance text-center text-heading-xl text-gray-100`}
+					className={`${ptSansCaption.className} text-balance  text-center text-heading-lg md:text-heading-xl text-gray-100 max-w-lg`}
 				>
 					Sua loja de afiliados, simples, do jeito que deveria ser
 				</h2>
