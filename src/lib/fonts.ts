@@ -9,5 +9,5 @@ export const inter = Inter({
 export const ptSansCaption = PT_Sans_Caption({
 	variable: "--font-pt-sans-caption",
 	subsets: ["latin"],
-	weight: ["400", "700"],
+	weight: ["700"],
 });

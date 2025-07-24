@@ -18,7 +18,7 @@ const HeroSection = () => {
 
 					<div className="flex flex-col items-center gap-4 ">
 						<div className="flex items-center gap-2">
-							<Clock className="text-cyan-100 h-5 w-5" />
+							<Clock className="text-cyan-100 h-5 w-5 -ml-5" />
 							<span>Crie o seu site em menos de 5 minutos</span>
 						</div>
 
