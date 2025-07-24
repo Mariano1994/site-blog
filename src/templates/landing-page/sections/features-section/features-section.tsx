@@ -3,27 +3,28 @@ import Image from "next/image";
 import Link from "next/link";
 import featueImage from "@/assets/feature-image.svg";
 import { Button } from "../../../../components/ui/button";
+import Feature from "./feature";
+
+const features = [
+	{
+		id: crypto.randomUUID(),
+		tag: "simples",
+		title: "Crie um catálogo de produtos online em poucos minutos",
+	},
+
+	{
+		id: crypto.randomUUID(),
+		tag: "prático",
+		title: "Venda para seu público através de uma plataforma única",
+	},
+];
 
 const FeaturesSection = () => {
 	return (
 		<section className="container bg-gray-800 grid gap-6 md:grid-cols-2 py-8 md:py-10">
-			<div className="flex flex-col gap-4 bg-gray-500  rounded-lg md:p-12 p-6">
-				<span className="text-body-tag text-blue-200 bg-blue-400 px-2 py-1 w-fit uppercase rounded-sm">
-					simples
-				</span>
-				<h2 className="text-gray-100 text-heading-lg">
-					Crie um catálogo de produtos online em poucos minutos
-				</h2>
-			</div>
-
-			<div className="flex flex-col gap-4 bg-gray-500  rounded-lg md:p-12 p-6">
-				<span className="text-body-tag text-blue-200 bg-blue-400 px-2 py-1 w-fit uppercase rounded-sm">
-					prático
-				</span>
-				<h2 className="text-gray-100 text-heading-lg">
-					Venda para seu público através de uma plataforma única
-				</h2>
-			</div>
+			{features.map((feature) => (
+				<Feature key={feature.id} feature={feature} />
+			))}
 
 			<div className="col-span-full flex flex-col gap-2">
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-4 p-6 rounded-lg bg-gray-500 ">
@@ -60,7 +61,7 @@ const FeaturesSection = () => {
 							className="w-full rounded-full mt-4 md:mt-auto md:hidden "
 						>
 							<Link href={"/create-store"}>
-								Criar loja <ArrowRight />
+								Criar loja gráti <ArrowRight />
 							</Link>
 						</Button>
 					</div>
