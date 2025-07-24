@@ -17,7 +17,7 @@ const links = [
 
 const FooterLinks = () => {
 	return (
-		<ul className="flex flex-col justify-between items-start md:flex-row md:items-center gap-4 md:gap-6 ">
+		<ul className=" flex flex-col justify-between items-start md:flex-row md:items-center gap-4 md:gap-6 ">
 			{links.map((link) => (
 				<li
 					key={link.href}

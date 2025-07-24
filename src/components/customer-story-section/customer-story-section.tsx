@@ -28,7 +28,7 @@ const testimonials = [
 ];
 const CustomerStorySection = () => {
 	return (
-		<section className="container py-8 md:py-10 ">
+		<section className="container py-8 md:py-10 md:mt-20 2xl:mt-52 -mb-12">
 			<div className="flex flex-col items-center gap-12">
 				<h2
 					className={`${ptSansCaption.className}text-gray-100 text-heading-lg md:text-heading-xl `}
