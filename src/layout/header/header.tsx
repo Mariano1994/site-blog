@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Logo from "../logo";
-import { Button } from "../ui/button";
+import Logo from "@/components/logo";
+import { Button } from "@/components/ui/button";
 import NaviLinks from "./nav-links";
 
 const Header = () => {

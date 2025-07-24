@@ -1,6 +1,6 @@
-import Footer from "./components/footer/footer";
-import Header from "./components/header/header";
-import { inter } from "./lib/fonts";
+import Footer from "@/layout/footer/footer";
+import Header from "@/layout/header/header";
+import { inter } from "@/lib/fonts";
 
 interface LayoutProps {
 	children: React.ReactNode;

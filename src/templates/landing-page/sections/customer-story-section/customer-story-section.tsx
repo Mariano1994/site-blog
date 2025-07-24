@@ -1,7 +1,7 @@
 import Image from "next/image";
+import customer01 from "@/assets/customer01.png";
+import customer02 from "@/assets/customer02.png";
 import { ptSansCaption } from "@/lib/fonts";
-import customer01 from "../../assets/customer01.png";
-import customer02 from "../../assets/customer02.png";
 
 const testimonials = [
 	{

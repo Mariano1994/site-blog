@@ -1,8 +1,8 @@
 import { Clock, Store } from "lucide-react";
 import Image from "next/image";
+import heroImage from "@/assets/hero-image.svg";
 import { ptSansCaption } from "@/lib/fonts";
-import heroImage from "../../assets/hero-image.svg";
-import CreateStoreButton from "../criate-store-button";
+import CreateStoreButton from "../../../../components/create-store-button";
 
 const HeroSection = () => {
 	return (
@@ -18,18 +18,23 @@ const HeroSection = () => {
 					<div className="flex flex-col items-center gap-4 ">
 						<div className="flex items-center gap-2">
 							<Clock className="text-cyan-100 h-5 w-5 -ml-5" />
-							<span>Crie o seu site em menos de 5 minutos</span>
+							<span className="text-body-md text-gray-200">
+								Crie o seu site em menos de 5 minutos
+							</span>
 						</div>
 
 						<div className="flex items-center gap-2">
 							<Store className="text-cyan-100 h-5 w-5" />
-							<span>Acompanhe e otimize seu negócio online</span>
+							<span className="text-body-md text-gray-200">
+								Acompanhe e otimize seu negócio online
+							</span>
 						</div>
 					</div>
 
 					<div className=" flex flex-col gap-2 items-center md:items-start lg:items-start mt-5 text-white ">
 						<CreateStoreButton />
 						<p className="text-gray-300 text-body-xs ">
+							{" "}
 							Não precisa de cartão de crédito
 						</p>
 					</div>

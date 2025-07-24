@@ -1,8 +1,8 @@
 import { Store } from "lucide-react";
 import Image from "next/image";
+import bg from "@/assets/background-footer.svg";
 import { ptSansCaption } from "@/lib/fonts";
-import bg from "../../assets/background-footer.svg";
-import CreateStoreButton from "../criate-store-button";
+import CreateStoreButton from "../../../../components/create-store-button";
 
 const CallToAction = () => {
 	return (

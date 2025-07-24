@@ -1,7 +1,7 @@
 import { HeartHandshake, Paintbrush, Store } from "lucide-react";
 import Image from "next/image";
+import bg from "@/assets/background-features.svg";
 import { ptSansCaption } from "@/lib/fonts";
-import bg from "../../assets/background-features.svg";
 
 const SupportSection = () => {
 	return (
