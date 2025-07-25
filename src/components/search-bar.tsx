@@ -4,6 +4,29 @@ import { useCallback } from "react";
 import { Input } from "./ui/input";
 
 const SeachBar = () => {
+	const router = useRouter();
+	const query = router.query.q as string;
+
+	const handleSearch = useCallback(
+		(event: React.FormEvent) => {
+			event.preventDefault();
+
+			if (query.trim()) {
+				router.push(`/blog?q=${encodeURIComponent(query)}`);
+			}
+		},
+		[query, router],
+	);
+
+	const handleQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		const newQuery = event.target.value;
+
+		router.push(`/blog?q=${encodeURIComponent(newQuery)}`, undefined, {
+			shallow: true,
+			scroll: false,
+		});
+	};
+
 	return (
 		<form onSubmit={handleSearch} className="relative group">
 			<Input
