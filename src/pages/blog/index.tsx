@@ -1,3 +1,5 @@
+import SeachBar from "@/components/search-bar";
+
 const Blog = () => {
 	return (
 		<div className="flex flex-col py-24 flex-grow h-full">
@@ -13,6 +15,8 @@ const Blog = () => {
 					</div>
 				</div>
 			</header>
+
+			<SeachBar />
 		</div>
 	);
 };
