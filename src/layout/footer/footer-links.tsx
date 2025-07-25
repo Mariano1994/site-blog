@@ -20,7 +20,7 @@ const FooterLinks = () => {
 		<ul className=" flex flex-col justify-between items-start md:flex-row md:items-center gap-4 md:gap-6 ">
 			{links.map((link) => (
 				<li
-					key={link.href}
+					key={link.title}
 					className="text-body-sm text-blue-100 hover:text-blue-200"
 				>
 					<Link href={link.href}>{link.title}</Link>
