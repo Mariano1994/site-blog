@@ -1,6 +1,7 @@
 import { SearchIcon } from "lucide-react";
 import { useRouter } from "next/router";
 import { useCallback } from "react";
+import { cn } from "@/lib/utils";
 import { Input } from "./ui/input";
 
 const SeachBar = () => {
@@ -28,14 +29,19 @@ const SeachBar = () => {
 	};
 
 	return (
-		<form onSubmit={handleSearch} className="relative group">
+		<form onSubmit={handleSearch} className=" w-full md:w-fit relative group">
 			<Input
 				type="text"
 				placeholder="Pesquisar..."
 				icon={
-					<SearchIcon className="text-gray-300  top-1/2 h-5 w-5 transition-colors duration-200 group-focus-within:text-blue-300 " />
+					<SearchIcon
+						className={cn(
+							"text-gray-300  top-1/2 h-5 w-5 transition-colors duration-200 group-focus-within:text-blue-300",
+							query && "text-blue-300",
+						)}
+					/>
 				}
-				className="h-10 w-72 ng-transparent border border-gray-400 pl-9 text-gray-100 outline-none transition-all duration-200 focus-within:border-blue-300 focus-within:ring-1 focus-within:ring-blue-300 placeholder:text-body-sm placeholder:text-gray-300 "
+				className="h-10 w-full  md:w-72 ng-transparent border border-gray-400 pl-9 text-gray-100 outline-none transition-all duration-200 focus-within:border-blue-300 focus-within:ring-1 focus-within:ring-blue-300 placeholder:text-body-sm placeholder:text-gray-300 "
 				onChange={handleQueryChange}
 			/>
 		</form>
