@@ -8,8 +8,8 @@ const PostCard = () => {
 			className=" w-full max-w-2xl rounded-3xl border-[1px] border-gray-400 bg-gray-600 overflow-hidden transition-all duration-300 hover:border-[1px] hover:border-blue-300"
 		>
 			<div className="p-2 rounded-md overflow-hidden ">
-				<div className="relative">
-					<div className="absolute top-0 right-0 bg-gray-400 rounded-xs px-3 py-1">
+				<div className="relative overflow-hidden">
+					<div className="absolute overflow-hidden top-0 -right-3 bg-gray-600 rounded-r-2xl px-4 py-1">
 						<span className=" text-body-xstext-gray-300">20/12/2024</span>
 					</div>
 					<Image
@@ -17,7 +17,7 @@ const PostCard = () => {
 						alt={""}
 						width={288}
 						height={144}
-						className="w-full h-40 object-cover object-center "
+						className="w-full h-40 object-cover object-center rounded-t-2xl "
 					/>
 				</div>
 
