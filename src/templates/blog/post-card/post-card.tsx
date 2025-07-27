@@ -1,19 +1,41 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const PostCard = () => {
+interface Author {
+	name: string;
+	role: string;
+	avatar: string;
+}
+
+interface PostCardProps {
+	slug: string;
+	title: string;
+	description: string;
+	imageSource: string;
+	date: string;
+	author: Author;
+}
+
+const PostCard = ({
+	slug,
+	title,
+	description,
+	imageSource,
+	date,
+	author,
+}: PostCardProps) => {
 	return (
 		<Link
-			href={""}
+			href={`/blog/${slug}`}
 			className=" w-full max-w-2xl rounded-3xl border-[1px] border-gray-400 bg-gray-600 overflow-hidden transition-all duration-300 hover:border-[1px] hover:border-blue-300"
 		>
 			<div className="p-2 rounded-md overflow-hidden ">
 				<div className="relative overflow-hidden">
-					<div className="absolute overflow-hidden top-0 -right-3 bg-gray-600 rounded-r-2xl px-4 py-1">
-						<span className=" text-body-xstext-gray-300">20/12/2024</span>
+					<div className="absolute overflow-hidden top-0 right-0 bg-gray-600 rounded-bl-[10px] px-3 py-2 backdrop-blur-sm">
+						<span className=" text-body text-gray-300">{date}</span>
 					</div>
 					<Image
-						src="/assets/first-post.png"
+						src={imageSource}
 						alt={""}
 						width={288}
 						height={144}
@@ -24,18 +46,22 @@ const PostCard = () => {
 				<div className="px-2 mt-4 space-y-4">
 					<h2 className="text-heading-sm text-gray-100 line-clamp-3">
 						{" "}
-						Transformando seu negócio em uma loja virtual
+						{title}
 					</h2>
 					<p className="text-gray-300 text-body-sm line-clamp-3 ">
-						Se você está buscando uma maneira simples e eficaz de vender seus
-						produtos online, o Site.Set é a solução perfeita para você
+						{description}
 					</p>
 
 					<div className=" flex items-center gap-3 border-t-[1px] border-gray-400 py-4">
-						<div className=" relative h-5 w-5 md:w-6 md:h-6 overflow-hidden rounded-full border-blue-200 border-[1px] ">
-							<Image src={""} alt="" fill className="object-cover rounded-md" />
+						<div className=" relative h-6 w-6 md:w-6 md:h-6 overflow-hidden rounded-full border-blue-200 border-[1px] ">
+							<Image
+								src={author?.avatar}
+								alt="costumer image"
+								fill
+								className="object-cover rounded-md"
+							/>
 						</div>
-						<span className=" text-body-sm text-gray-300">Aspen Dokidis</span>
+						<span className=" text-body-sm text-gray-300">{author?.name}</span>
 					</div>
 				</div>
 			</div>
