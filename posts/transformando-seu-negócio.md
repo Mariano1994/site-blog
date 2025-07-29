@@ -5,7 +5,7 @@ date: 2024-12-20 10:20:00
 image: /assets/first-post.png
 author: 
   name: Aspen Dokidis
-  avatar: /assets/customer01.png
+  avatar: /assets/author1.png
 ---
 
 
