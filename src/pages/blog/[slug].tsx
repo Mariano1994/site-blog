@@ -8,6 +8,7 @@ import AvatarImage from "@/components/avatar/avatar-image";
 import AvatarTitle from "@/components/avatar/avatar-title";
 import BreadCrumb from "@/components/bread-crumb";
 import Markdown from "@/components/markdown/markdown";
+import { Button } from "@/components/ui/button";
 
 export default function PostPage() {
 	const router = useRouter();
@@ -67,6 +68,22 @@ export default function PostPage() {
 							<Markdown content={post?.body?.raw as string} />
 						</div>
 					</article>
+
+					<aside className="space-y-6">
+						<div className="rounded-lg bg-gray-800 p-4 md:p-6">
+							<h2 className="mb-4 text-heading-xs text-gray-100">
+								Compartilhar
+							</h2>
+
+							<div className="space-y-3 flex flex-col">
+								{Array.from({ length: 4 }).map((_, index) => (
+									<Button variant="outline" key={index}>
+										compartilhar
+									</Button>
+								))}
+							</div>
+						</div>
+					</aside>
 				</div>
 			</div>
 		</main>
