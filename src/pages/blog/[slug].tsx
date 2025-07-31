@@ -49,8 +49,7 @@ export default function PostPage() {
 								<AvatarImage
 									src={post?.author.avatar as string}
 									alt={post?.author.name as string}
-									width={40}
-									height={40}
+									size="sm"
 								/>
 								<AvatarContent>
 									<AvatarTitle>{post?.author.name}</AvatarTitle>

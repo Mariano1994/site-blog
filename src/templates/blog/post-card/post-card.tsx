@@ -1,5 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import AvatarContainer from "@/components/avatar/avatar-container";
+import AvatarDescription from "@/components/avatar/avatar-description";
+import AvatarImage from "@/components/avatar/avatar-image";
 
 interface Author {
 	name: string;
@@ -53,15 +56,10 @@ const PostCard = ({
 					</p>
 
 					<div className=" flex items-center gap-3 border-t-[1px] border-gray-400 py-4">
-						<div className=" relative h-6 w-6 md:w-6 md:h-6 overflow-hidden rounded-full border-blue-200 border-[1px] ">
-							<Image
-								src={author?.avatar}
-								alt="costumer image"
-								fill
-								className="object-cover rounded-md"
-							/>
-						</div>
-						<span className=" text-body-sm text-gray-300">{author?.name}</span>
+						<AvatarContainer>
+							<AvatarImage src={author?.avatar} alt={author?.name} />
+							<AvatarDescription>{author?.name}</AvatarDescription>
+						</AvatarContainer>
 					</div>
 				</div>
 			</div>
