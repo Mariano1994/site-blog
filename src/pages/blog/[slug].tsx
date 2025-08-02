@@ -78,12 +78,12 @@ export default function PostPage() {
 					</article>
 
 					<aside className="">
-						<div className="rounded-lg bg-gray-800 py-6  md:px-6 md:py-0">
+						<div className="rounded-lg bg-gray-800 py-6 md:px-6  md:py-0">
 							<h2 className="mb-4 text-heading-xs text-gray-100">
 								Compartilhar
 							</h2>
 
-							<div className="space-x-3 md:space-y-3 flex items-center md:flex-col overflow-scroll md:overflow-visible ">
+							<div className="space-x-3 md:space-y-3 md:space-x-0 flex items-center md:flex-col overflow-scroll  ">
 								{buttonShare.map((provider) => (
 									<Button
 										variant="outline"
