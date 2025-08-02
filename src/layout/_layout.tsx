@@ -1,6 +1,7 @@
 import Footer from "@/layout/footer/footer";
 import Header from "@/layout/header/header";
 import { inter } from "@/lib/fonts";
+import CallToAction from "@/templates/landing-page/sections/call-to-action/call-to-action";
 
 interface LayoutProps {
 	children: React.ReactNode;
@@ -13,6 +14,7 @@ const Layout = ({ children }: LayoutProps) => {
 		>
 			<Header />
 			<main className="flex-1 flex flex-col mt-10 ">{children}</main>
+			<CallToAction />
 			<Footer />
 		</div>
 	);

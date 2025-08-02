@@ -30,7 +30,7 @@ export default function PostPage() {
 		"pt-pt",
 	);
 	return (
-		<main className=" mt-24 md:mt-28  mb-16">
+		<main className=" pt-24 ">
 			<div className="container space-y-8 px-4 md:px-8 ">
 				<BreadCrumb
 					link="/blog"
@@ -78,21 +78,21 @@ export default function PostPage() {
 					</article>
 
 					<aside className="">
-						<div className="rounded-lg bg-gray-800 py-6 md:px-6  md:py-0">
-							<h2 className="mb-4 text-heading-xs text-gray-100">
+						<div className="rounded-lg bg-gray-800 py-6   md:py-0">
+							<h2 className="hidden md:block mb-4 text-heading-xs text-gray-100">
 								Compartilhar
 							</h2>
 
-							<div className="space-x-3 md:space-y-3 md:space-x-0 flex items-center md:flex-col overflow-scroll  ">
+							<div className="space-x-3 md:space-y-3 md:space-x-0 flex items-center justify-center md:flex-col overflow-scroll  ">
 								{buttonShare.map((provider) => (
 									<Button
 										variant="outline"
 										key={provider.name}
 										onClick={() => provider.action()}
-										className=" w-full justify-start gap-2"
+										className="w-fit md:w-full justify-start gap-2"
 									>
 										{provider.icon}
-										{provider.name}
+										<span className="hidden md:block ">{provider.name}</span>
 									</Button>
 								))}
 							</div>
