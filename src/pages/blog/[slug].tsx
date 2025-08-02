@@ -9,14 +9,22 @@ import AvatarTitle from "@/components/avatar/avatar-title";
 import BreadCrumb from "@/components/bread-crumb";
 import Markdown from "@/components/markdown/markdown";
 import { Button } from "@/components/ui/button";
+import { useShare } from "@/hooks/use-sahre/use-share";
 
 export default function PostPage() {
 	const router = useRouter();
 	const slug = router.query.slug as string;
+	const postUrl = `https://site.set/blog/${slug}`;
 
 	const post = allPosts.find(
 		(post) => post?.slug?.toLocaleLowerCase() === slug?.toLocaleLowerCase(),
 	);
+
+	const { buttonShare } = useShare({
+		url: postUrl,
+		title: post?.title,
+		text: post?.description,
+	});
 
 	const publisedDate = new Date(post?.date as string).toLocaleDateString(
 		"pt-pt",
@@ -69,16 +77,22 @@ export default function PostPage() {
 						</div>
 					</article>
 
-					<aside className="space-y-6">
-						<div className="rounded-lg bg-gray-800 p-4 md:p-6">
+					<aside className="">
+						<div className="rounded-lg bg-gray-800 py-6  md:px-6 md:py-0">
 							<h2 className="mb-4 text-heading-xs text-gray-100">
 								Compartilhar
 							</h2>
 
-							<div className="space-y-3 flex flex-col">
-								{Array.from({ length: 4 }).map((_, index) => (
-									<Button variant="outline" key={index}>
-										compartilhar
+							<div className="space-x-3 md:space-y-3 flex items-center md:flex-col overflow-scroll md:overflow-visible ">
+								{buttonShare.map((provider) => (
+									<Button
+										variant="outline"
+										key={provider.name}
+										onClick={() => provider.action()}
+										className=" w-full justify-start gap-2"
+									>
+										{provider.icon}
+										{provider.name}
 									</Button>
 								))}
 							</div>
