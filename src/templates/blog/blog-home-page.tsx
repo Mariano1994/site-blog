@@ -1,4 +1,3 @@
-// import CallToAction from "../landing-page/sections/call-to-action/call-to-action";
 import { allPosts } from "contentlayer/generated";
 import { Inbox } from "lucide-react";
 import { useRouter } from "next/router";
@@ -19,7 +18,6 @@ const BlogHomePage = () => {
 	const hasPosts = posts.length > 0;
 	return (
 		<div>
-			{/* <CallToAction /> */}
 			<Header />
 			{hasPosts ? (
 				<PostGridCard>
