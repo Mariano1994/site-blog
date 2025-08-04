@@ -1,6 +1,5 @@
-import { allPosts } from "contentlayer/generated";
+import type { Post } from "contentlayer/generated";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import AvatarContainer from "@/components/avatar/avatar-container";
 import AvatarContent from "@/components/avatar/avatar-content";
 import AvatarDescription from "@/components/avatar/avatar-description";
@@ -11,14 +10,12 @@ import Markdown from "@/components/markdown/markdown";
 import { Button } from "@/components/ui/button";
 import { useShare } from "@/hooks/use-sahre/use-share";
 
-const Post = () => {
-	const router = useRouter();
-	const slug = router.query.slug as string;
-	const postUrl = `https://site.set/blog/${slug}`;
+type PostProps = {
+	post: Post;
+};
 
-	const post = allPosts.find(
-		(post) => post?.slug?.toLocaleLowerCase() === slug?.toLocaleLowerCase(),
-	);
+const PostP = ({ post }: PostProps) => {
+	const postUrl = `https://site.set/blog/${post.slug}`;
 
 	const { buttonShare } = useShare({
 		url: postUrl,
@@ -104,4 +101,4 @@ const Post = () => {
 	);
 };
 
-export default Post;
+export default PostP;
