@@ -1,19 +1,23 @@
-import { allPosts } from "contentlayer/generated";
+import type { Post } from "contentlayer/generated";
 import { Inbox } from "lucide-react";
 import { useRouter } from "next/router";
 import Header from "./header/header";
 import PostCard from "./post-card/post-card";
 import PostGridCard from "./post-grid-card/post-grid-card";
 
-const BlogHomePage = () => {
+type PostsPros = {
+	posts: Post[];
+};
+
+const BlogHomePage = ({ posts }: PostsPros) => {
 	const route = useRouter();
 	const query = route.query.q as string;
 
-	const posts = query
-		? allPosts.filter((post) =>
+	const postList = query
+		? posts.filter((post) =>
 				post.title.toLowerCase().includes(query.toLowerCase()),
 			)
-		: allPosts;
+		: posts;
 
 	const hasPosts = posts.length > 0;
 	return (
@@ -21,7 +25,7 @@ const BlogHomePage = () => {
 			<Header />
 			{hasPosts ? (
 				<PostGridCard>
-					{posts.map((post) => (
+					{postList.map((post) => (
 						<PostCard
 							key={post._id}
 							title={post.title}
