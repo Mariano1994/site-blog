@@ -4,12 +4,14 @@ import { cn } from "@/lib/utils";
 export interface InputPropos
 	extends React.InputHTMLAttributes<HTMLInputElement> {
 	icon?: React.ReactNode;
+	ref?: React.Ref<HTMLInputElement>;
 }
 
-function Input({ className, type, icon, ...props }: InputPropos) {
+function Input({ className, type, ref, icon, ...props }: InputPropos) {
 	return (
 		<div className="relative">
 			<input
+				ref={ref}
 				type={type}
 				data-slot="input"
 				className={cn(

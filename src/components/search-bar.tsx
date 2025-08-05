@@ -1,14 +1,16 @@
 "use client";
 import { CircleX, SearchIcon } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Input } from "./ui/input";
 
 const SeachBar = () => {
+	const inputRef = useRef<HTMLInputElement | null>(null);
 	const router = useRouter();
 	const searchParams = useSearchParams();
 	const query = searchParams?.get("q") ?? "";
+	const hasQuery = searchParams?.has("q");
 
 	const handleSearch = useCallback(
 		(event: React.FormEvent) => {
@@ -34,9 +36,16 @@ const SeachBar = () => {
 		});
 	};
 
+	useEffect(() => {
+		if (hasQuery) {
+			inputRef.current?.focus();
+		}
+	}, [hasQuery]);
+
 	return (
 		<form onSubmit={handleSearch} className=" w-full md:w-fit relative group">
 			<Input
+				ref={inputRef}
 				type="text"
 				placeholder="Pesquisar..."
 				value={query}
