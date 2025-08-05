@@ -1,6 +1,7 @@
+"use client";
 import type { Post } from "contentlayer/generated";
 import { Inbox } from "lucide-react";
-import { useRouter } from "next/router";
+import { useSearchParams } from "next/navigation";
 import Header from "./header/header";
 import PostCard from "./post-card/post-card";
 import PostGridCard from "./post-grid-card/post-grid-card";
@@ -10,8 +11,8 @@ type PostsPros = {
 };
 
 const BlogHomePage = ({ posts }: PostsPros) => {
-	const route = useRouter();
-	const query = route.query.q as string;
+	const searchParams = useSearchParams();
+	const query = searchParams?.get("q") ?? "";
 
 	const postList = query
 		? posts.filter((post) =>
