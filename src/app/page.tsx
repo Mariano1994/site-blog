@@ -1,7 +1,5 @@
 import LandingPage from "@/templates/landing-page/landing-page";
 
-export const HomePage = () => {
+export default function HomePage() {
 	return <LandingPage />;
-};
-
-export default HomePage;
+}
