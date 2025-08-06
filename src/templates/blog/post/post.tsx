@@ -7,8 +7,7 @@ import AvatarImage from "@/components/avatar/avatar-image";
 import AvatarTitle from "@/components/avatar/avatar-title";
 import BreadCrumb from "@/components/bread-crumb";
 import Markdown from "@/components/markdown/markdown";
-import { Button } from "@/components/ui/button";
-import { useShare } from "@/hooks/use-sahre/use-share";
+import SharePost from "@/components/share-post";
 
 type PostProps = {
 	post: Post;
@@ -16,12 +15,6 @@ type PostProps = {
 
 const PostP = ({ post }: PostProps) => {
 	const postUrl = `https://site.set/blog/${post.slug}`;
-
-	const { buttonShare } = useShare({
-		url: postUrl,
-		title: post?.title,
-		text: post?.description,
-	});
 
 	const publisedDate = new Date(post?.date as string).toLocaleDateString(
 		"pt-pt",
@@ -74,27 +67,11 @@ const PostP = ({ post }: PostProps) => {
 						</div>
 					</article>
 
-					<aside className="">
-						<div className="rounded-lg bg-gray-800 py-6   md:py-0">
-							<h2 className="hidden md:block mb-4 text-heading-xs text-gray-100">
-								Compartilhar
-							</h2>
-
-							<div className="space-x-3 md:space-y-3 md:space-x-0 flex items-center justify-center md:flex-col ">
-								{buttonShare.map((provider) => (
-									<Button
-										variant="outline"
-										key={provider.name}
-										onClick={() => provider.action()}
-										className="w-fit md:w-full justify-start gap-2"
-									>
-										{provider.icon}
-										<span className="hidden md:block ">{provider.name}</span>
-									</Button>
-								))}
-							</div>
-						</div>
-					</aside>
+					<SharePost
+						url={postUrl}
+						title={post?.title as string}
+						description={post?.description as string}
+					/>
 				</div>
 			</div>
 		</main>
